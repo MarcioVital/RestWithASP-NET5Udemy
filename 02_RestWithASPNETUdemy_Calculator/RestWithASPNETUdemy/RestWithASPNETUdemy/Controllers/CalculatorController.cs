@@ -23,7 +23,34 @@ namespace RestWithASPNETUdemy.Controllers
         [HttpGet("sum/{firstNumber}/{secondNumber}")]
 
 
-        public IActionResult Get(string firstNumber, string secondNumber)
+        public IActionResult Soma(string firstNumber, string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+
+                var sum = ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber);
+                return Ok(sum.ToString());
+
+            }
+            return BadRequest("Invalid Input");
+        }
+
+
+        [HttpGet("Subtracao/{firstNumber}/{secondNumber}")]
+        public IActionResult Subtracao(string firstNumber, string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+
+                var sum = ConvertToDecimal(firstNumber) - ConvertToDecimal(secondNumber);
+                return Ok(sum.ToString());
+
+            }
+            return BadRequest("Invalid Input");
+        }
+
+        [HttpGet("Multiplicacao/{firstNumber}/{secondNumber}")]
+        public IActionResult Multiplicacao(string firstNumber, string secondNumber)
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
@@ -32,7 +59,46 @@ namespace RestWithASPNETUdemy.Controllers
                 return Ok(sum.ToString());
 
             }
-            return BadRequest("Invalid Input Oi");
+            return BadRequest("Invalid Input");
+        }
+
+        [HttpGet("Divisao/{firstNumber}/{secondNumber}")]
+        public IActionResult Divisao(string firstNumber, string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+
+                var sum = ConvertToDecimal(firstNumber) / ConvertToDecimal(secondNumber);
+                return Ok(sum.ToString());
+
+            }
+            return BadRequest("Invalid Input");
+        }
+
+        [HttpGet("Media/{firstNumber}/{secondNumber}")]
+        public IActionResult Media(string firstNumber, string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+
+                var sum = (ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber))/2;
+                return Ok(sum.ToString());
+
+            }
+            return BadRequest("Invalid Input");
+        }
+
+        [HttpGet("raiz4/{firstNumber}")]
+        public IActionResult raiz4(string firstNumber)
+        {
+            if (IsNumeric(firstNumber))
+            {
+
+                var raiz4 = Math.Sqrt((double)ConvertToDecimal(firstNumber));
+                return Ok(raiz4.ToString());
+
+            }
+            return BadRequest("Invalid Input");
         }
 
         private bool IsNumeric(string strNumber)
