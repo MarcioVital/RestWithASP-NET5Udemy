@@ -11,7 +11,7 @@ namespace RestWithASPNETUdemy.Controllers
     [Route("[controller]")]
     public class CalculatorController : ControllerBase
     {
-       
+
 
         private readonly ILogger<CalculatorController> _logger;
 
@@ -20,20 +20,20 @@ namespace RestWithASPNETUdemy.Controllers
             _logger = logger;
         }
 
-        [HttpGet ("sum/{fistNumber}?{secondNumber}")]
+        [HttpGet("sum/{firstNumber}/{secondNumber}")]
 
 
         public IActionResult Get(string firstNumber, string secondNumber)
         {
-            if (IsNumeric(firstNumber)&& IsNumeric(secondNumber)) 
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
-               
-                var sum = ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber);
+
+                var sum = ConvertToDecimal(firstNumber) * ConvertToDecimal(secondNumber);
                 return Ok(sum.ToString());
 
             }
-            return BadRequest("Invalid Input" );
-           }
+            return BadRequest("Invalid Input Oi");
+        }
 
         private bool IsNumeric(string strNumber)
         {
@@ -48,12 +48,25 @@ namespace RestWithASPNETUdemy.Controllers
         private decimal ConvertToDecimal(string strNumber)
         {
             decimal decimalValue;
-            if (decimal.TryParse(strNumber, out decimalValue)) {
+            if (decimal.TryParse(strNumber, out decimalValue))
+            {
                 return decimalValue;
             }
             return 0;
         }
-
-        
     }
 }
+/*
+        public IActionResult Get(int firstNumber, int secondNumber)
+        {
+            var sum = firstNumber + secondNumber;
+            return Ok(sum);
+
+        }
+
+
+
+    }
+
+}
+*/
