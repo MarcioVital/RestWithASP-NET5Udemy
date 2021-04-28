@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RestWithASPNETUdemy.Model;
+using RestWithASPNETUdemy.Services;
 using RestWithASPNETUdemy.Services.Implementations;
 
 namespace RestWithASPNETUdemy.Controllers

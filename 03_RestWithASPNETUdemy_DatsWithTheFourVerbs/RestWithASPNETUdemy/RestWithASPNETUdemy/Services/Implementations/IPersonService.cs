@@ -1,22 +1,20 @@
-using RestWithASPNETUdemy.Model;
+﻿using RestWithASPNETUdemy.Model;
 using System.Collections.Generic;
-{
-    
-}
 
 
-namespace RestWithASPNETUdemy.Services.Implementations
+
+namespace RestWithASPNETUdemy.Services
 {
     public interface IPersonService
     {
-         Person Create (Person person);
+        Person Create(Person person);
 
-         Person FindByID(long id);
+        Person FindByID(long id);
 
-         List<Person> FindAll();
+        List<Person> FindAll();
 
-         Person Update (Person person);
+        Person Update(Person person);
 
-         void Delete (long id);
+        void Delete(long id);
     }
 }

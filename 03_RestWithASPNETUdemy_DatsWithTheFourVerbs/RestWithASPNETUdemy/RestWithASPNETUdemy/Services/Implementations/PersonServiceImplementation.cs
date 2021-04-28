@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using RestWithASPNETUdemy.Model;
-using RestWithASPNETUdemy.Services.Implementations;
 
 namespace RestWithASPNETUdemy.Services.Implementations
 {
